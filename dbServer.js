@@ -3,6 +3,7 @@ const app = express()
 const mysql = require("mysql")
 const jwt = require("jsonwebtoken")
 const cookieParser = require("cookie-parser");
+const cors = require('cors')
 
 require("dotenv").config()
 const DB_HOST = process.env.DB_HOST
@@ -14,6 +15,8 @@ const port = process.env.PORT
 
 app.use(express.json())
 app.use(cookieParser())
+app.use(cors())
+
 app.listen(port,
     () => console.log(`Server Started on port ${port}...`))
 

@@ -4,6 +4,7 @@ const mysql = require("mysql")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 const cookieParser = require("cookie-parser");
+const cors = require('cors')
 
 require("dotenv").config()
 const DB_HOST = process.env.DB_HOST
@@ -18,6 +19,9 @@ let refreshTokens = []
 
 app.use(express.json())
 app.use(cookieParser())
+app.use(cors())
+
+
 app.listen(port,
     () => console.log(`Server Started on port ${port}...`))
 
